@@ -164,21 +164,21 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="index.html" class="nav-link active" aria-current="page">
+        <a href="#" class="nav-link active" aria-current="page">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-          สร้างรุ่น
+          Home
         </a>
       </li>
       <li>
-        <a href="dashboard.html" class="nav-link link-body-emphasis">
+        <a href="#" class="nav-link link-body-emphasis">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-          ความคืบหน้า
+          Dashboard
         </a>
       </li>
       <li>
         <a href="#" class="nav-link link-body-emphasis">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-          ผลลัพธ์
+          Orders
         </a>
       </li>
       <li>
@@ -200,53 +200,20 @@
 
   <!-- Content Wrapper -->
   <div class="content-wrapper">
-    <!-- Area -->
-    <div class="container-fluid">
-
-      <!-- Page Heading -->
-      <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h1 class="h3 mb-0 text-gray-800">การสร้างรุ่น</h1>
+    <!-- Area Chart -->
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
       </div>
-
-      <!-- Content Row -->
-      <div class="row" style="padding-right: 30;">
-        <form class="mx-auto">
-            <div class="mb-3">
-              <label for="generationnumber" class="form-label">จำนวนรุ่น</label>
-              <input type="text" class="form-control" id="generationnumber" placeholder="กรอกจำนวนรุ่น">
-            </div>
-            <div class="mb-3">
-              <label for="populationsize" class="form-label">ขนาดประชากร</label>
-              <input type="text" class="form-control" id="populationsize" placeholder="กรอกขนาดประชากร">
-            </div>
-            <div class="mb-3">
-              <label for="fitnessfunction" class="form-label">ฟังก์ชันความเหมาะสม</label>
-              <input type="text" class="form-control" id="fitnessfunction" placeholder="กรอกฟังก์ชันความเหมาะสม">
-            </div>
-          
-            <div class="mb-3">
-              <label for="crossover" class="form-label">การผสมยีน</label>
-              <select class="form-select" aria-label="crossover">
-                <option selected>เลือกรูปแบบการผสมยีน</option>
-                <option value="1">การผสมยีนแบบสองจุด</option>
-                <option value="2">การผสมยีนแบบสม่ำเสมอ</option>
-                <option value="3">Three</option>
-              </select>
-            </div>
-            
-            <div class="mb-3">
-              <label for="mutation" class="form-label">การกลายพันธุ์</label>
-              <input type="text" class="form-control" id="mutation" placeholder="Enter value for Field 3">
-            </div>
-            <button type="submit" class="btn btn-primary">สร้างรุ่น</button>
-          </form>
-         
-          
+      <div class="card-body">
+          <div class="chart-area">
+              <canvas id="myAreaChart"></canvas>
+          </div>
+          <hr>
+          Styling for the area chart can be found in the
+          <code>/js/demo/chart-area-demo.js</code> file.
       </div>
-
-      
-
-    </div>
+  </div>
   </div>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
