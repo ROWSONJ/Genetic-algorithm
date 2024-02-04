@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>Sidebars · Bootstrap v5.3</title>
+    <title>Genetic Algorithm</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -108,6 +108,7 @@
       .content-wrapper {
         margin-left: 280px;
         padding: 20px;
+        margin-right: 250px;
         transition: margin-left 0.3s ease;
         display: flex;
         justify-content: center;
@@ -118,12 +119,13 @@
       font-family: 'Kanit', sans-serif;
       font-weight: 300;
       font-display: swap;
-  }
+    }
   
-
       .form-control {
         width: 100%;
     }
+
+   
 
     </style>
 
@@ -158,7 +160,7 @@
 
   <!-- Sidebar -->
   <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+    <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
       <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
       <span class="fs-4">Genetic algorithm</span>
     </a>
@@ -177,7 +179,7 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link link-body-emphasis">
+        <a href="chart.html" class="nav-link link-body-emphasis">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
           ผลลัพธ์
         </a>
@@ -214,39 +216,57 @@
         <form class="mx-auto" id="geneticForm">
           <div class="mb-3">
               <label for="generationnumber" class="form-label">จำนวนรุ่น</label>
-              <input type="number" class="form-control" id="generationnumber" name="generations" placeholder="กรอกจำนวนรุ่น" required>
-          </div>
-          <div class="mb-3">
+              <input type="number" class="form-control" id="generationnumber" name="generations" placeholder="กรอกจำนวนรุ่น" oninput="validateNumber(this)" min="1" max="100">
+              <small id="generationnumberHelp" class="form-text text-muted">กรุณากรอกจำนวนรุ่นระหว่าง 1 ถึง 100</small>
+            </div>
+            <div class="mb-3">
               <label for="populationsize" class="form-label">ขนาดประชากร</label>
-              <input type="number" class="form-control" id="populationsize" name="populationsize" placeholder="กรอกขนาดประชากร" required>
-          </div>
-          <div class="mb-3">
+              <input type="number" class="form-control" id="populationsize" name="populationsize" placeholder="กรอกขนาดประชากร" oninput="validateNumber(this)" min="1" max="100">
+              <small id="populationsizeHelp" class="form-text text-muted">กรุณากรอกขนาดประชากรระหว่าง 1 ถึง 100</small>
+            </div>
+            <div class="mb-3">
               <label for="fitnessfunction" class="form-label">ฟังก์ชันความเหมาะสม</label>
-              <input type="number" class="form-control" id="fitnessfunction" name="targetFitness" placeholder="กรอกฟังก์ชันความเหมาะสม" required>
-          </div>
-      
-          <div class="mb-3">
+              <input type="number" class="form-control" id="fitnessfunction" name="targetFitness" placeholder="กรอกฟังก์ชันความเหมาะสม" oninput="validateNumber(this)" min="1" max="100">
+              <small id="fitnessfunctionHelp" class="form-text text-muted">กรุณากรอกค่าฟังก์ชันความเหมาะสม</small>
+            </div>
+          
+            <div class="mb-3">
               <label for="crossover" class="form-label">การผสมยีน</label>
-              <select class="form-select" id="crossover" aria-label="crossover" required>
-                  <option value="" selected disabled>เลือกรูปแบบการผสมยีน</option>
-                  <option value="singlePoint">Single Point Crossover</option>
-                  <option value="twoPoint">Two Point Crossover</option>
+              <select class="form-select" aria-label="crossover" id="crossover">
+                <option disabled selected>เลือกรูปแบบการผสมยีน</option>
+                <option value="singlePoint">การผสมยีนแบบสม่ำเสมอ</option>
+                <option value="twoPoint">การผสมยีนแบบสองจุด</option>
               </select>
-          </div>
-      
-          <div class="mb-3">
-            <label for="mutation" class="form-label">การกลายพันธุ์ (Mutation Rate)</label>
-            <input type="number" step="0.01" min="0" max="1" class="form-control" id="mutation" name="mutationRate" placeholder="Enter value for Mutation Rate (0 to 1)">
-        </div>
-          <button type="submit" class="btn btn-primary">สร้างรุ่น</button>
-      </form>
+            </div>
+            
+            <div class="mb-3">
+              <label for="mutation" class="form-label">การกลายพันธุ์</label>
+              <input type="number" step="0.01" min="0" max="1" class="form-control" id="mutation" name="mutationRate" placeholder="กรอกอัตราการกลายพันธ์ุ" oninput="validateNumber(this)">
+              <small id="mutationHelp" class="form-text text-muted">กรุณากรอกอัตราการกลายพันธ์ุระหว่าง 0.001 ถึง 0.1</small>
+            </div>
+            <button type="submit" class="btn btn-primary">สร้างรุ่น</button>
+          </form>
+         
+          
       </div>
 
       
 
     </div>
   </div>
+    <script>
+      function validateNumber(input) {
+          // Remove non-numeric characters and allow only one dot
+          input.value = input.value.replace(/[^0-9.]/g, '');
 
+          // Validate the format of the input (optional)
+          if (input.value.indexOf('.') !== input.value.lastIndexOf('.')) {
+              // More than one dot present, remove the extra one
+              input.value = input.value.slice(0, input.value.lastIndexOf('.'));
+          }
+      }
+    </script>
+    
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="sidebars.js"></script></body>
 </html>
