@@ -1,0 +1,73 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genetic Algorithm Visualization</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Add custom styles if needed */
+    body {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Genetic Algorithm Visualization</h1>
+
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Display information about the best individual -->
+      <div class="card">
+        <div class="card-header">
+          Best Individual
+        </div>
+        <div class="card-body">
+          <p class="card-text" id="bestFitness"></p>
+          <p class="card-text" id="bestGenes"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <!-- Display chart for generations information -->
+      <div class="card">
+        <div class="card-header">
+          Generations Chart
+        </div>
+        <div class="card-body">
+          <canvas id="generationsChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 mt-4">
+      <!-- Display bar chart for individual fitness in each generation -->
+      <div class="card">
+        <div class="card-header">
+          Individual Fitness Comparison
+        </div>
+        <div class="card-body">
+          <canvas id="individualComparisonChart" width="800" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Your JavaScript file -->
+<script src="testgenetic_algorithm.js"></script>
+
+</body>
+</html>
