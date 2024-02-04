@@ -118,11 +118,15 @@
       font-weight: 300;
       font-display: swap;
   }
-  
 
-      .form-control {
-        width: 100%;
-    }
+    .chart-area {
+        overflow-y: auto; /* Make the content scrollable vertically */
+        max-height: 400px; /* Set the maximum height for the scrollable area */
+      }
+      
+      .scrollable-content {
+        padding: 10px; /* Add some padding to the content */
+      }
 
     </style>
 
@@ -176,7 +180,7 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link link-body-emphasis">
+        <a href="chart.html" class="nav-link link-body-emphasis">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
           ผลลัพธ์
         </a>
@@ -200,7 +204,7 @@
 
   <!-- Content Wrapper -->
   <div class="content-wrapper">
-    <!-- Area Chart -->
+    <!-- Area -->
     <div class="container-fluid">
 
       <!-- Page Heading -->
@@ -296,25 +300,90 @@
                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                       <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
                       <div class="dropdown no-arrow">
-                          
-                          <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              ตัวเลือก
-                            </button>
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                          </div>
-
-                      </div>
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-caret-down-fill"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                            aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">Dropdown Header:</div>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
                   </div>
                   <!-- Card Body -->
                   <div class="card-body">
-                      <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                          <canvas id="myAreaChart" width="552" height="400" style="display: block; height: 320px; width: 442px;" class="chartjs-render-monitor"></canvas>
-                      </div>
+                      <div class="chart-area">
+                        <div class="scrollable-content">
+                      เธอเข้ามาทำให้ใครได้รู้สึกดีแล้วเธอก็ไป
+                      เธอมาขโมยรอยยิ้มทุกครั้งยังทำให้ต้องหวั่นไหว
+                      แค่เพียงชั่วคราวแล้วเธอก็หายวับราวกับดอกไม้ไฟ
+                      สวยงามแค่ไหน
+                      ไม่เคยจะได้หัวใจ
+                      เธอเข้ามาทำให้ใครได้รู้สึกดีแล้วเธอก็ไป
+                      เธอมาขโมยรอยยิ้มทุกครั้งยังทำให้ต้องหวั่นไหว
+                      แค่เพียงชั่วคราวแล้วเธอก็หายวับราวกับดอกไม้ไฟ
+                      สวยงามแค่ไหน
+                      ไม่เคยจะได้หัวใจ เอ
+                      ช่วยบอกให้รู้ทีก็เพราะว่าใจที่ฉันมี
+                      รู้สึกมันไม่ค่อยดีเหมือนมีอาการหวั่นไหว
+                      ช่วยบอกกันให้รู้ตัวที่ชอบมาทำให้เผลอใจ
+                      มันเป็นบังเอิญว่าฉันคิดไกลหรือเธอก็คิดเหมือนกัน
+                      ก็ตั้งแต่วันนั้นที่ฉันได้เจอเธอ
+                      ฉันก็นอนไม่ค่อยจะหลับ
+                      ยังคงจะเผลอใจกลับไปคิดถึงเธอทั้งคืน
+                      ก็ตั้งแต่วันนั้นที่ฉันได้เจอเธอก็เผลอไปคิดว่ามันคือรัก
+                      แต่พออีกสักพักก็เห็นเธอว่าไปกับคนอื่น
+                      เธอเข้ามาทำให้ใครได้รู้สึกดีแล้วเธอก็ไป
+                      เธอมาขโมยรอยยิ้มทุกครั้งยังทำให้ต้องหวั่นไหว
+                      แค่เพียงชั่วคราวแล้วเธอก็หายวับราวกับดอกไม้ไฟ
+                      สวยงามแค่ไหน
+                      ไม่เคยจะได้หัวใจ
+                      เธอเข้ามาทำให้ใครได้รู้สึกดีแล้วเธอก็ไป
+                      เธอมาขโมยรอยยิ้มทุกครั้งยังทำให้ต้องหวั่นไหว
+                      แค่เพียงชั่วคราวแล้วเธอก็หายวับราวกับดอกไม้ไฟ
+                      สวยงามแค่ไหน
+                      ไม่เคยจะได้หัวใจ เอ
+                      บางทีก็ดีแต่บางทีก็หาย
+                      บางทีก็ทำเป็นดูเหมือนว่าเธอคล้ายจะมีหัวใจให้กัน
+                      แต่รู้ตัวอีกทีเธอก็เดินไปจากฉัน
+                      คงจะไม่รอและคงจะไม่หวัง
+                      คงจะไม่คิดให้เธอเป็นคนในฝัน
+                      ถ้าเธอไม่เริ่มมาทักไม่ยิ้มให้กัน
+                      ไม่เข้ามาทำให้ใจต้องไหวหวั่น
+                      อย่าปล่อยให้มโน
+                      ถ้าเธอจะทิ้งไว้ให้ช้ำคงไม่โอ
+                      แต่ถ้าภายในใจเธอเองบังเอิญก็คิดเหมือนกับฉัน
+                      แค่เพียงบอกกันเท่านั้นคงจะ flow
+                      And I want you to show me how
+                      Cause I'm happy when you around
+                      ไม่อยากคุยเล่นแค่ชั่วคราว
+                      Now I'm falling for your smile girl
+                      เธอเข้ามาทำให้ใครได้รู้สึกดีแล้วเธอก็ไป
+                      เธอมาขโมยรอยยิ้มทุกครั้งยังทำให้ต้องหวั่นไหว
+                      แค่เพียงชั่วคราวแล้วเธอก็หายวับราวกับดอกไม้ไฟ
+                      สวยงามแค่ไหน
+                      ไม่เคยจะได้หัวใจ
+                      เธอเข้ามาทำให้ใครได้รู้สึกดีแล้วเธอก็ไป
+                      เธอมาขโมยรอยยิ้มทุกครั้งยังทำให้ต้องหวั่นไหว
+                      แค่เพียงชั่วคราวแล้วเธอก็หายวับราวกับดอกไม้ไฟ
+                      สวยงามแค่ไหน
+                      ไม่เคยจะได้หัวใจ
+                      เธอเข้ามาทำให้ใครได้รู้สึกดีแล้วเธอก็ไป
+                      เธอมาขโมยรอยยิ้มทุกครั้งยังทำให้ต้องหวั่นไหว
+                      แค่เพียงชั่วคราวแล้วเธอก็หายวับราวกับดอกไม้ไฟ
+                      สวยงามแค่ไหน
+                      ไม่ก็เคยจะได้หัวใจ
+                      เธอเข้ามาทำให้ใครได้รู้สึกดีแล้วเธอก็ไป
+                      เธอมาขโมยรอยยิ้มทุกครั้งยังทำให้ต้องหวั่นไหว
+                      แค่เพียงชั่วคราวแล้วเธอก็หายวับราวกับดอกไม้ไฟ
+                      สวยงามแค่ไหน
+                      ฉันก็ไม่เคยจะได้หัวใจ เอ
+                        </div>
+                    </div>
                   </div>
               </div>
           </div>
