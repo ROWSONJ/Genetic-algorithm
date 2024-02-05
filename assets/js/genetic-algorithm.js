@@ -143,16 +143,19 @@ class DNA {
   console.log("ExecutionTime: " + ExecutionTime); // for testing
 
   document.addEventListener("DOMContentLoaded", function () {
+
       const form = document.getElementById('geneticForm');
-    
+
       form.addEventListener('submit', function (event) {
+
           event.preventDefault();
           const generations = parseInt(document.getElementById('generationnumber').value);
           const populationSize = parseInt(document.getElementById('populationsize').value);
           const targetFitness = parseInt(document.getElementById('fitnessfunction').value);
           const crossoverType = document.getElementById('crossover').value;
           const mutationRate = parseFloat(document.getElementById('mutation').value);
-    
+          localStorage.setItem('targetFitness', targetFitness);
+          
           if (!generations || !populationSize || !targetFitness || !crossoverType || !mutationRate) {
               alert('กรุณากรอกข้อมูลให้ครบทุกช่อง');
               return;
@@ -162,7 +165,7 @@ class DNA {
             alert("Invalid mutation rate. Please enter a value between 0 and 1.");
             return; // Exit the function
           }
-    
+          window.location.href = 'dashboard.html';
           const startTime = performance.now(); // Record start time
     
           const population = new Population(scoreTable, mutationRate, populationSize, targetFitness, crossoverType);
@@ -173,6 +176,7 @@ class DNA {
           let targetIndividual = null;
           let smallestBestFitness = Infinity;
           let generationWithSmallestFitness = 0;
+          let logprocess = '';
     
           while (genCount < generations) {
             population.generate(genCount);
@@ -192,6 +196,7 @@ class DNA {
 
             if (targetIndividual) {
                 console.log(`Target fitness(${targetFitness}) found at Generation ${genCount + 1}, Genes: ${targetIndividual.getGenes()}, Fitness: ${targetIndividual.getFitness(scoreTable)}`);
+                localStorage.setItem('targetIndividual', `Genes: ${targetIndividual.getGenes()} with Fitness: ${targetIndividual.getFitness(scoreTable)}`);
                 break;
             }else{
                 console.log(`Closest fitness(${targetFitness}) found in Generation ${generationWithSmallestFitness} is: Genes: ${bestOverallIndividual} , Fitness: ${smallestBestFitness}.`);
@@ -201,21 +206,17 @@ class DNA {
 
         const endTime = performance.now(); // Record end time
         const totalTimeInSeconds = (endTime - startTime) / 1000; // Convert milliseconds to seconds
-        
+
+        // After computing the best fitness
         BestFitness = smallestBestFitness;
         ExecutionTime = totalTimeInSeconds;
+        localStorage.setItem('bestOverallIndividual', `Genes: ${bestOverallIndividual} with Fitness: ${BestFitness}`);
+        localStorage.setItem('ExecutionTime', ExecutionTime.toFixed(2));
+        localStorage.setItem('logProcess', logprocess);
 
         console.log(`Best fitness found at generation ${generationWithSmallestFitness}, Genes: ${bestOverallIndividual}, Fitness: ${smallestBestFitness}`);   
-        if (smallestBestFitness) {
-            document.getElementById("BestFitness").innerHTML = `${BestFitness} Seconds`;
-        }
-        
-        console.log(`Total time taken: ${totalTimeInSeconds.toFixed(2)} seconds`); 
-        if (totalTimeInSeconds) {
-            document.getElementById("ExecutionTime").innerHTML = `${ExecutionTime} Seconds`;
-        }
-
-        
+        console.log(`Total time taken: ${totalTimeInSeconds.toFixed(2)} seconds`);
       });
+
   });
   
