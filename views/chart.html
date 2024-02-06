@@ -223,6 +223,7 @@
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
               <h6 class="m-0 font-weight-bold text-primary">ผลลัพธ์</h6>
+              <button type="submit" class="btn btn-primary" id="runBtn">แสดงผลลัพธ์</button>
             </div>
             <!-- Card Body -->
             <div class="card-body">
@@ -260,9 +261,47 @@
     </div>
   </div>
 
-  <script src="genetic-algorithm.js"></script>
+  <script src="../assets/js/genetic-algorithm.js"></script>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="sidebars.js"></script>
+  <script src="../assets/js/sidebars.js"></script>
+ 
+    <script>
+       const generationsChart = new Chart(generationsCtx, {
+        type: 'line',
+        data: {
+            labels: [], // Fill with generation numbers
+            datasets: [{
+                label: 'Best Fitness',
+                borderColor: 'blue',
+                backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                data: [],
+            }],
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Generations',
+                    },
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Fitness',
+                    },
+                },
+            },
+        },
+    });
+    
+    // Function to update the generations chart
+    function updateGenerationsChart(generation, bestFitness) {
+        generationsChart.data.labels.push(generation);
+        generationsChart.data.datasets[0].data.push(bestFitness);
+        generationsChart.update();
+    }
+    </script>
 </body>
 
 </html>
